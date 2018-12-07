@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Psychic Game</title>
+
+</head>
+<h1>Psychic Game</h1>
+
+<div id="pschic">
+  <h2>Wins</h2>
+  <h3 id="winscount"></h3>
+  <h2>Losses</h2>
+  <h3 id="lossescount"></h3>
+  <h2>Number of Guesses</h2>
+  <h3 id = "guessescount"></h3>
+  <h2>Guesses Left</h2>
+  <h3 id="leftcount"></h3>
+
+</div>
+
+<body>
+<script type="text/javascript">
+
+//Variables
+var win = 0;
+var loss = 0;
+var left = 15;
+var guesses = 0;
+var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+// var userGuess = "";
+
+//1. computer generates letter and user guesses a letter
+var compGuess = letters[Math.floor(Math.random() * letters.length)];
+      console.log (compGuess);
+
+document.onkeyup = function(event) {
+    var userGuess = event.key;
+      console.log(userGuess);
+
+//3. if userGuess matches the computer letter, add a point to win and select new letter
+  
+  for (i=0; i<letters.length; i++){
+        if (userGuess == letters){          
+          win++;
+          console.log ("User win! " + win++);
+          break;
+          }
+    
+  //4. If the chosen letter does not match the computer letter subtract from guesses left
+        else {
+          left--;
+          console.log (left--);
+          guesses++;
+          console.log (guesses++);
+          }
+    } 
+
+        var winDiv = document.getElementById('winscount').innerHTML;
+        winDiv.textcontent = win;
+        
+        var GuessDiv = document.getElementById('guesscount').innerHTML;
+        GuessDiv.textcontent = guesses;
+
+        var leftDiv = document.getElementById('leftcount').innerHTML;
+        leftDiv.textcontent = left;
+
+
+}
+
+//if userGuess does not match the computer letter, add a point to guesses, subtract one from left
+
+
+
+
+
+</script>
+
+
+</body>
+
+
+
+</html>
